@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://getbootstrap.com/docs/4.0/examples/sign-in/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+
+    <title>Source code translator</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="js/maincontroller.js"></script>
+    <script>
+     function fileselected(){
+		var file = document.getElementById("file");
+		var typeTextbox = document.getElementById("filetype");
+		var plaintxt = document.getElementById("plaintexttogglediv");
+		console.log(typeTextbox.options);
+		var fileName = file.value;
+		if(fileName.endsWith(".java")){
+			typeTextbox.value = 'java';
+			plaintxt.hidden = false;
+		}else if(fileName.endsWith(".cpp")){
+			typeTextbox.value = 'cpp';
+			plaintxt.hidden = false;
+		}else if(fileName.endsWith(".cs")){
+			typeTextbox.value = 'cs';
+			plaintxt.hidden = false;
+		}else if(fileName.endsWith(".txt")){
+			typeTextbox.value = 'txt';
+			plaintxt.hidden = false;
+		}else if(fileName.endsWith(".sql")){
+			typeTextbox.value = 'sql';
+			plaintxt.hidden = false;
+		}else if(fileName.endsWith(".c")){
+			typeTextbox.value = 'c';
+			plaintxt.hidden = false;
+		}else if(fileName.endsWith(".ods")){
+			typeTextbox.value = 'ods';
+			plaintxt.hidden = true;
+		}else if(fileName.endsWith(".xls")){
+			typeTextbox.value = 'xls';
+			plaintxt.hidden = true;
+		}else if(fileName.endsWith(".xlsx")){
+			typeTextbox.value = 'xlsx';
+			plaintxt.hidden = true;
+		}else if(fileName.endsWith(".docx")){
+			typeTextbox.value = 'docx';
+			plaintxt.hidden = true;
+		}else if(fileName.endsWith(".doc")){
+			typeTextbox.value = 'doc';
+			plaintxt.hidden = true;
+		}  
+     }
+    </script>
+  </head>
+
+  <body class="text-center" ng-app="translatorApp" ng-controller="mainCtrl" background="img/bg.jpg">
+   <div class="container">
+  <div class="jumbotron floralwhitebg">
+  <div id="loadingGif" ng-show="loadingflag">
+  <img src="img/load3.gif" class="ajax-loader" />
+<h2 ng-model="loadingtext">{{loadingtext}}</h2>
+  </div>
+    <form class="form-signin floralwhitebg" enctype="multipart/form-data" ng-submit="translate(this)">
+      <img class="" src="img/lan1.gif" alt="" width="120" height="100">
+      <h1 class="h3 mb-3 font-weight-normal">Source code translator</h1>
+      
+      <label for="file" class="sr-only">Upload the file to translate</label>
+      <input type="file" id="file" name="file" class="form-control form-control-file" placeholder="choose file" file-model="file" onchange="fileselected()">
+      
+      <div class="form-control">
+      <input class="form-control mr-sm-2" type="text" placeholder="Source Language" aria-label="Source Language" ng-model="srclan" list="lsuggestions" name="sl" id="sl" required>
+            <datalist id="lsuggestions" ng-model="languages">
+            <option  ng-repeat="sl in languages | orderBy" value="{{sl}}">
+            </datalist>
+       <input class="form-control mr-sm-2" type="text" placeholder="Target Language" aria-label="Target Language" ng-model="tgtlan" list="lsuggestions" name="tl" id="tl" required>
+       <input class="form-control mr-sm-2" type="text" placeholder="Supported File types" aria-label="File type" ng-model="filetype" list="ftypes" name="filetype" id="filetype" required>
+       <datalist id="ftypes" ng-model="supportedTypes">
+            <option  ng-repeat="ft in supportedTypes | orderBy" value="{{ft}}" id="{{ft}}">
+            </datalist>
+      </div>
+    	<div class="form-control" id="plaintexttogglediv" hidden="true">
+    	<label id="switch" >Translate as plain text:  <input type="checkbox" id="plaintexttoggle" ng-model="isplaintxt"></label>
+    </div>
+      <button ng-hide="translatedflag" class="cbtn btn btn-lg btn-primary btn-block" type="submit" ng-click=""><span class="glyphicon glyphicon-send"></span> Translate file</button>
+      <a ng-show="translatedflag" class="cbtn btn btn-lg btn-success btn-block"  href="{{downloadFileLink}}" ng-click="downloaded()"><span class="glyphicon glyphicon-download-alt"></span> Download file</a>
+      <p class="mt-5 mb-3 text-muted">S@ru © 2017-2018</p>
+    </form>
+  </div>
+</div>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body></html>

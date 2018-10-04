@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)https://getbootstrap.com/docs/4.0/examples/starter-template/ -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="https://getbootstrap.com/favicon.ico">
+
+<title>Source Code Translator</title>
+<!-- Custom styles for this template -->
+<link href="css/custom.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+<link
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+	rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/maincontroller.js"></script>
+<script src="js/translatedcontroller.js"></script>
+<script src="js/contactcontroller.js"></script>
+<script>
+     function fileselected(){
+		var file = document.getElementById("file");
+		var typeTextbox = document.getElementById("filetype");
+		var plaintxt = document.getElementById("plaintexttogglediv");
+		console.log(typeTextbox.options);
+		var fileName = file.value;
+		if(fileName.endsWith(".java")){
+			typeTextbox.value = 'java';
+			plaintxt.hidden = false;
+		}else if(fileName.endsWith(".cpp")){
+			typeTextbox.value = 'cpp';
+			plaintxt.hidden = false;
+		}else if(fileName.endsWith(".cs")){
+			typeTextbox.value = 'cs';
+			plaintxt.hidden = false;
+		}else if(fileName.endsWith(".txt")){
+			typeTextbox.value = 'txt';
+			plaintxt.hidden = false;
+		}else if(fileName.endsWith(".sql")){
+			typeTextbox.value = 'sql';
+			plaintxt.hidden = false;
+		}else if(fileName.endsWith(".c")){
+			typeTextbox.value = 'c';
+			plaintxt.hidden = false;
+		}else if(fileName.endsWith(".ods")){
+			typeTextbox.value = 'ods';
+			plaintxt.hidden = true;
+		}else if(fileName.endsWith(".xls")){
+			typeTextbox.value = 'xls';
+			plaintxt.hidden = true;
+		}else if(fileName.endsWith(".xlsx")){
+			typeTextbox.value = 'xlsx';
+			plaintxt.hidden = true;
+		}else if(fileName.endsWith(".docx")){
+			typeTextbox.value = 'docx';
+			plaintxt.hidden = true;
+		}else if(fileName.endsWith(".doc")){
+			typeTextbox.value = 'doc';
+			plaintxt.hidden = true;
+		}  
+     }
+    </script>
+</head>
+
+<body >
+	<nav class="fnavbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" href="">Source Code Translator</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarsExampleDefault"
+			aria-controls="navbarsExampleDefault" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link" href="#/">Home 
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item active"><a class="nav-link" href="#translated">View-Translated-Files</a></li>
+				<li class="nav-item active"><a class="nav-link" href="#about"> About</a></li>
+				<li class="nav-item active"><a class="nav-link" href="#contact"> Contact</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div ng-app="translatorApp" class="container" ng-view> </div>
+	<!-- /.container -->
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
+
+
+</body>
+</html>

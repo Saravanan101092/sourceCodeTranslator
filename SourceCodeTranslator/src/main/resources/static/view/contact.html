@@ -1,0 +1,83 @@
+<div ng-controller = "contactController">
+<br>
+<div class="jumbotron jumbotron-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <h1 class="h1">
+                    Contact me <small>Feel free to get in touch regarding feedback/bugs</small></h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" >
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well well-sm">
+                <form ng-submit="sendMessage()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name" ng-model = "name" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <input type="email" class="form-control" ng-model = "email" id="email" placeholder="Enter email" required="required" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">
+                                Subject</label>
+                            <select id="subject" name="subject" class="form-control" ng-model = "category" required="required" style="height:34px;">
+                                <option value="na" selected="">Choose One:</option>
+                                <option value="bug">Found a bug</option>
+                                <option value="help">App crashed/need help</option>
+                                <option value="feedback">General Feedback</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Message</label>
+                            <textarea name="message" id="message" ng-model = "message" class="form-control" rows="9" cols="25" required="required"
+                                placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                            Send Message</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <form>
+            <legend><span class="glyphicon glyphicon-globe"></span> Or you can find me at</legend>
+            <address>
+                <strong>TCS TRIL</strong><br>
+                Desk no 0296<br>
+                First floor, ODC 4<br>
+                <abbr title="Phone">
+                    P:</abbr>
+                9176909050
+            </address>
+            <address>
+                <strong>Saravanan Sampath</strong><br>
+                <a href="mailto:#">s.saravanan14@tcs.com</a>
+            </address>
+            </form>
+        </div>
+    </div>
+</div>
+ <div class="alert alert-success alert-dismissible fade in" ng-show="msgAlert">
+    <a href="#" class="close" data-hide="alert" aria-label="close">&times;</a>
+    <strong>Message sent to my slack account!</strong> I will check it out ASAP.
+  </div>
+</div>

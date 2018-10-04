@@ -1,0 +1,8 @@
+<br>
+<h3>Translated Files</h3>
+<div class="list-group" ng-controller="translatedController">
+<input type="text" placeholder="Search.." ng-model="search" class="list-group-item list-group-item-action"/><br>
+  <a ng-repeat="file in files | filter: search" href="/codetranslator/api/download/file?fileName={{file}}" class="list-group-item list-group-item-action">
+    {{file}}
+  </a>
+</div>
