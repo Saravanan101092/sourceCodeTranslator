@@ -42,6 +42,7 @@ public class GoogleAPIClient {
 	
 	
 	public String simpleTranslate(String text,String source, String target) throws Exception{
+		Thread.sleep(1000);
 		RestTemplate restTemplate = new RestTemplate();
 		URIBuilder uriBuilder = new URIBuilder(API);
 		uriBuilder.addParameter("client", "gtx");
@@ -59,6 +60,11 @@ public class GoogleAPIClient {
 		return getStringOfResponse(jsonObj);
 	}
 	public Map<String,String> callAPI(String text,String source, String target) throws URISyntaxException, JSONException {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		RestTemplate restTemplate = new RestTemplate();
 		URIBuilder uriBuilder = new URIBuilder(API);
 		uriBuilder.addParameter("client", "gtx");

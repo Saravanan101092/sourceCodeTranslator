@@ -40,8 +40,15 @@ public class OpenOfficeTranslatorServiceImpl
     {
       Node sheet = sheetList.item(i);
       Node sheetNameNode = sheet.getAttributes().item(0);
+     try {
       String sheetNameTranslated = this.googleAPIClient.simpleTranslate(sheetNameNode.getNodeValue(), sourceLan, targetLan);
       sheetNameNode.setNodeValue(sheetNameTranslated);
+    }
+    catch (Exception e)
+    {
+      log.error("Error during translation:"+sheetNameNode.getNodeValue()+" Error:" + e.getMessage());
+    }
+      
       recursiveProcess(sheet, sourceLan, targetLan);
     }
     log.info("Translation completed. Writing into file.");
@@ -62,7 +69,7 @@ public class OpenOfficeTranslatorServiceImpl
       }
       catch (Exception e)
       {
-        log.error("Error during translation:" + e.getMessage());
+        log.error("Error during translation:"+text+" Error:" + e.getMessage());
       }
       return;
     }
